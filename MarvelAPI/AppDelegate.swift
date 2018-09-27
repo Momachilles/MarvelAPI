@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -63,12 +64,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .success(let dataContainer):
                 let comic = dataContainer.results.first
                 
-                print("  Title: \(comic?.title ?? "Unnamed comic") (\(comic?.format))")
+                print("  Title: \(comic?.title ?? "Unnamed comic")")
                 print("  Thumbnail: \(comic?.thumbnail?.url.absoluteString ?? "None")")
             case .failure(let error):
                 print(error)
             }
         }
+        
+        apiClient.request(ComicAPIRequest(comicId: 61537)).observe(on: UIScheduler()).on(event: { event in
+            print("Event: \(event)")
+        }, failed: { error in
+            print("Error: \(error)")
+        }, completed: {
+            print("Completed")
+        }).start()
         
         return true
     }

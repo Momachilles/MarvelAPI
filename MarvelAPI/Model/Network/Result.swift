@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Result
 
-public enum Result<Value> {
+public enum Result<Value, MarvelError> {
     case success(Value)
-    case failure(Error)
-}
+    case failure(MarvelError)
+ }
 
-public typealias ResultCallback<Value> = (Result<Value>) -> Void
+public typealias ResultCallback<Value, MarvelError> = (Result<Value, MarvelError>) -> Void

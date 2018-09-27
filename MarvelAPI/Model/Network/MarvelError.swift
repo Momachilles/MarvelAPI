@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import Result
 
 public enum MarvelError: Error {
+    
     case encoding
     case decoding
     case url
     case noData
+    case timeout
     case server(message: String)
 }
