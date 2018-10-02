@@ -16,68 +16,80 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let apiClient = MarvelAPIClient(publicKey: "650e801e1408159969078d2a1361c71c", privateKey: "20112b45612fd05f0d21d80d70bc8c971695c7f1")
-        apiClient.request(CharactersAPIRequest(name: "Avengers")) { result in
-            print("\nGetCharacters finished:")
-            
-            switch result {
-            case .success(let dataContainer):
-                for character in dataContainer.results {
-                    print("  Character: \(character.name ?? "Unnamed character")")
-                    print("  Thumbnail: \(character.thumbnail?.url.absoluteString ?? "None")")
-                    guard
-                        let urlString = character.thumbnail?.url.absoluteString,
-                        let url = URL(string: urlString)
-                        else { return }
-                    
-                    do {
-                        let image = try UIImage(data: Data(contentsOf: url))
-                        print("\(String(describing: image))")
-                    } catch {
-                        print(error)
-                    }
-                    
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        //let apiClient = MarvelAPIClient(publicKey: "650e801e1408159969078d2a1361c71c", privateKey: "20112b45612fd05f0d21d80d70bc8c971695c7f1")
+//        apiClient.request(CharactersAPIRequest(name: "Avengers")) { result in
+//            print("\nGetCharacters finished:")
+//            
+//            switch result {
+//            case .success(let dataContainer):
+//                for character in dataContainer.results {
+//                    print("  Character: \(character.name ?? "Unnamed character")")
+//                    print("  Thumbnail: \(character.thumbnail?.url.absoluteString ?? "None")")
+//                    guard
+//                        let urlString = character.thumbnail?.url.absoluteString,
+//                        let url = URL(string: urlString)
+//                        else { return }
+//                    
+//                    do {
+//                        let image = try UIImage(data: Data(contentsOf: url))
+//                        print("\(String(describing: image))")
+//                    } catch {
+//                        print(error)
+//                    }
+//                    
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//        
+//        apiClient.request(ComicsAPIRequest(titleStartsWith: "Uncanny")) { result in
+//            print("\nGetComics finished:")
+//            
+//            switch result {
+//            case .success(let dataContainer):
+//                for comic in dataContainer.results {
+//                    print("  Title: \(comic.title ?? "Unnamed comic")")
+//                    print("  Thumbnail: \(comic.thumbnail?.url.absoluteString ?? "None")")
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//        
+//        apiClient.request(ComicAPIRequest(comicId: 61537)) { result in
+//            print("\nGetComic finished:")
+//            
+//            switch result {
+//            case .success(let dataContainer):
+//                let comic = dataContainer.results.first
+//                
+//                print("  Title: \(comic?.title ?? "Unnamed comic")")
+//                print("  Thumbnail: \(comic?.thumbnail?.url.absoluteString ?? "None")")
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
-        apiClient.request(ComicsAPIRequest(titleStartsWith: "Uncanny")) { result in
-            print("\nGetComics finished:")
-            
-            switch result {
-            case .success(let dataContainer):
-                for comic in dataContainer.results {
-                    print("  Title: \(comic.title ?? "Unnamed comic")")
-                    print("  Thumbnail: \(comic.thumbnail?.url.absoluteString ?? "None")")
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        apiClient.requestSignalProducer(ComicAPIRequest(comicId: 61537)).observe(on: UIScheduler()).on(event: { event in
+//            print("Event: \(String(describing: event.value?.results.first))")
+//        }, failed: { error in
+//            print("Error: \(error)")
+//        }, completed: {
+//            print("Completed")
+//        }).start()
         
-        apiClient.request(ComicAPIRequest(comicId: 61537)) { result in
-            print("\nGetComic finished:")
-            
-            switch result {
-            case .success(let dataContainer):
-                let comic = dataContainer.results.first
-                
-                print("  Title: \(comic?.title ?? "Unnamed comic")")
-                print("  Thumbnail: \(comic?.thumbnail?.url.absoluteString ?? "None")")
-            case .failure(let error):
-                print(error)
-            }
-        }
         
-        apiClient.request(ComicAPIRequest(comicId: 61537)).observe(on: UIScheduler()).on(event: { event in
-            print("Event: \(event)")
-        }, failed: { error in
-            print("Error: \(error)")
-        }, completed: {
-            print("Completed")
-        }).start()
+        /*
+        let model = CharactersListViewModel()
+        model.shouldReloadCharactersListTable.signal.observeValues { _ in
+            print("Should reload: \(model.characters.value)")
+        }*/
+        
+        let mainVC = CharactersListViewController()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = mainVC
+        self.window?.makeKeyAndVisible()
         
         return true
     }

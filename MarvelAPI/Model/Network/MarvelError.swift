@@ -16,5 +16,6 @@ public enum MarvelError: Error {
     case url
     case noData
     case timeout
+    case generic
     case server(message: String)
 }
