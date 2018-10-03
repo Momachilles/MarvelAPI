@@ -6,6 +6,7 @@ PODS:
   - Result (3.2.4)
 
 DEPENDENCIES:
+  - ReactiveCocoa
   - ReactiveCocoa (~> 7.0)
 
 SPEC REPOS:
@@ -19,6 +20,6 @@ SPEC CHECKSUMS:
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
 
-PODFILE CHECKSUM: 9c0925c944158f1920c5917c3aedc1dd07f3042b
+PODFILE CHECKSUM: 2eacf632fef54812998e281f33833da8f42af369
 
 COCOAPODS: 1.5.3

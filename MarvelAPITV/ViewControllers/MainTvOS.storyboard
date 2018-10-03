@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rlg-oK-QPz">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Characters ListTV Os View Controller-->
+        <scene sceneID="t3J-eL-xHw">
+            <objects>
+                <viewController id="rlg-oK-QPz" customClass="CharactersListTVOsViewController" customModule="MarvelAPITV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gm8-ZD-w1I"/>
+                        <viewControllerLayoutGuide type="bottom" id="poU-rM-bXY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WGV-YE-7gH">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nY7-bo-Rcu">
+                                <rect key="frame" x="90" y="60" width="1740" height="960"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GUJ-TK-cyH">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CharacterCellIdentifier" id="1HY-km-FJt" customClass="CharacterCollectionViewCell" customModule="MarvelAPITV" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="430"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="430"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddx-Eh-9Bb">
+                                                    <rect key="frame" x="18" y="10" width="275" height="354"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="275" id="hcx-9s-HTo"/>
+                                                        <constraint firstAttribute="height" constant="354" id="yP0-r7-q4o"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Doq-bh-3bt">
+                                                    <rect key="frame" x="43" y="384" width="225" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="5HQ-PW-57k"/>
+                                                        <constraint firstAttribute="width" constant="225" id="yCK-lH-JWk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Doq-bh-3bt" firstAttribute="centerX" secondItem="1HY-km-FJt" secondAttribute="centerX" id="6tz-F3-7Lc"/>
+                                            <constraint firstItem="ddx-Eh-9Bb" firstAttribute="top" secondItem="1HY-km-FJt" secondAttribute="top" constant="10" id="lw5-KX-Vea"/>
+                                            <constraint firstItem="ddx-Eh-9Bb" firstAttribute="centerX" secondItem="1HY-km-FJt" secondAttribute="centerX" id="u92-3l-agT"/>
+                                            <constraint firstItem="Doq-bh-3bt" firstAttribute="top" secondItem="ddx-Eh-9Bb" secondAttribute="bottom" constant="20" id="uYq-KA-FW4"/>
+                                        </constraints>
+                                        <size key="customSize" width="310" height="430"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="Doq-bh-3bt" id="Odz-QF-ltb"/>
+                                            <outlet property="thumbnailImage" destination="ddx-Eh-9Bb" id="rG2-c3-cTc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="poU-rM-bXY" firstAttribute="top" secondItem="nY7-bo-Rcu" secondAttribute="bottom" id="FuV-3c-54i"/>
+                            <constraint firstItem="8Jg-H5-ce2" firstAttribute="trailing" secondItem="nY7-bo-Rcu" secondAttribute="trailing" id="Gsj-wn-eYn"/>
+                            <constraint firstItem="nY7-bo-Rcu" firstAttribute="leading" secondItem="8Jg-H5-ce2" secondAttribute="leading" id="Mu8-5q-MWM"/>
+                            <constraint firstItem="nY7-bo-Rcu" firstAttribute="top" secondItem="Gm8-ZD-w1I" secondAttribute="bottom" id="aH7-6L-7Hp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Jg-H5-ce2"/>
+                    </view>
+                    <connections>
+                        <outlet property="charactersCollectionView" destination="nY7-bo-Rcu" id="Mzi-ir-jut"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFS-vp-MiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="-407"/>
+        </scene>
+    </scenes>
+</document>

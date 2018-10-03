@@ -85,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         model.shouldReloadCharactersListTable.signal.observeValues { _ in
             print("Should reload: \(model.characters.value)")
         }*/
-        
         let mainVC = CharactersListViewController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = mainVC
