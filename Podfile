@@ -6,7 +6,7 @@ target 'MarvelAPI' do
   use_frameworks!
 
   # Pods for MarvelAPI
-  pod 'ReactiveCocoa', '~> 7.0'
+  pod 'ReactiveCocoa'#, '~> 7.0'
 
   target 'MarvelAPITests' do
     inherit! :search_paths

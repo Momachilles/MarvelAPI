@@ -14,7 +14,14 @@ class MarvelAPI: NSObject {
     
     lazy var apiClient = MarvelAPIClient(publicKey: "d6580a897f29e5d71527d2f6e331363d", privateKey: "d48f85d457eb32e300123a21ca0c200dbd1b18ac")
     
+    // MARK: - Comic Characters
     public func characters(page: Int = 0, number: Int = 20) -> Signal<[ComicCharacter], MarvelError> {
         return apiClient.requestSignal(CharactersAPIRequest(limit: number, offset: page)).map { return $0.results }
     }
+    
+    // MARK: - Comics
+    public func comics(page: Int = 0, number: Int = 20) -> Signal<[Comic], MarvelError> {
+        return apiClient.requestSignal(ComicsAPIRequest(limit: number, offset: page)).map { return $0.results }
+    }
+    
 }

@@ -22,24 +22,7 @@ class CharacterCollectionViewCellModel: NSObject {
     
     // MARK: - Setup
     private func setupBinding() {
-        title <~ character.signal.map { $0?.name ?? .none }.skipRepeats()
+        title <~ character.signal.skipNil().map { $0.name ?? .none }.skipRepeats()
         thumnailImageURL <~ character.signal.map { $0?.thumbnail?.url ?? .none }.skipRepeats()
-        
-        /*
-        thumnailImage <~ character.signal.map { comicCharacter in
-            DispatchQueue.global(qos: DispatchQoS.default.qosClass).async {
-                if let url = comicCharacter.thumbnail?.url {
-                    do {
-                        let data = try Data(contentsOf: url)
-                        DispatchQueue.main.async {
-                            let img = UIImage(data: data)
-                            return  img
-                        }
-                    } catch {
-                        print("ERROR: \(error)")
-                    }
-                }
-            }
-        }*/
     }
 }

@@ -1,21 +1,21 @@
 //
-//  CharacterCollectionViewCell.swift
+//  ComicCollectionViewCell.swift
 //  MarvelAPITV
 //
-//  Created by David Alarcon on 03/10/2018.
+//  Created by David Alarcon on 04/10/2018.
 //  Copyright © 2018 David Alarcon. All rights reserved.
 //
 
 import UIKit
-import ReactiveSwift
 
-class CharacterCollectionViewCell: UICollectionViewCell {
+class ComicCollectionViewCell: UICollectionViewCell {
+    
     // MARK: - Outlets
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     // MARK: - Variables
-    lazy var viewModel = CharacterCollectionViewCellModel()
+    lazy var viewModel = ComicCollectionViewCellModel()
     
     
     // MARK: - Init
@@ -29,13 +29,14 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Setup
-    func configureCell(character: ComicCharacter) {
-        viewModel.character.value = character
+    func configureCell(comic: Comic) {
+        viewModel.comic.value = comic
     }
     
     private func setupBinding() {
+        //nameLabel.reactive.text <~ viewModel.title
         viewModel.title.signal.observeValues { [weak self] name in self?.nameLabel.text = name }
-        viewModel.thumnailImageURL.signal.observeValues { [weak self] url in
+        viewModel.thumbnailImageURL.signal.observeValues { [weak self] url in
             DispatchQueue.global(qos: DispatchQoS.default.qosClass).async {
                 if let url = url {
                     do {
@@ -51,4 +52,5 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
 }
