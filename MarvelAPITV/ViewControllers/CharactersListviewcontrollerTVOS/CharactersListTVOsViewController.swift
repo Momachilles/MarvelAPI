@@ -80,6 +80,14 @@ class CharactersListTVOsViewController: UIViewController, UICollectionViewDelega
                 nextItem.thumbnailImage.frame.size = self.focusCellSize
             }
         }
+        
+        if let context = context as? UICollectionViewFocusUpdateContext {
+            if let indexPath = context.nextFocusedIndexPath {
+                if (!charactersCollectionView.isScrollEnabled) {
+                    charactersCollectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.centeredVertically, animated: true)
+                }
+            }
+        }
     }
 
     /*

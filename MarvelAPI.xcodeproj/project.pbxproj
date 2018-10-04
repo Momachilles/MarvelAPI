@@ -35,6 +35,7 @@
 		4EA79A152164C24E00E5AB65 /* ComicsAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC42D11215BB8EC0096716E /* ComicsAPIRequest.swift */; };
 		4EA79A162164C25800E5AB65 /* ComicAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC42D15215BC1020096716E /* ComicAPIRequest.swift */; };
 		4EA79A1B2164D56000E5AB65 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA79A1A2164D56000E5AB65 /* CharacterCollectionViewCell.swift */; };
+		4EA79A1F21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA79A1E21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift */; };
 		4EC42CD6215B66BB0096716E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC42CD5215B66BB0096716E /* AppDelegate.swift */; };
 		4EC42CDD215B66BD0096716E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC42CDC215B66BD0096716E /* Assets.xcassets */; };
 		4EC42CEB215B66BD0096716E /* MarvelAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC42CEA215B66BD0096716E /* MarvelAPITests.swift */; };
@@ -93,6 +94,7 @@
 		4EA799FA2163C58400E5AB65 /* CharactersListTVOsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListTVOsViewController.swift; sourceTree = "<group>"; };
 		4EA79A012163C7EE00E5AB65 /* MainTvOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTvOS.storyboard; sourceTree = "<group>"; };
 		4EA79A1A2164D56000E5AB65 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		4EA79A1E21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		4EC42CD2215B66BB0096716E /* MarvelAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC42CD5215B66BB0096716E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EC42CDC215B66BD0096716E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,7 +192,9 @@
 		4EA799DD2163C33100E5AB65 /* MarvelAPITV */ = {
 			isa = PBXGroup;
 			children = (
+				4EA79A1C21650B1200E5AB65 /* Model */,
 				4EA79A092164C13000E5AB65 /* ViewControllers */,
+				4EA79A1D21650B1700E5AB65 /* ViewModels */,
 				4EA799DE2163C33100E5AB65 /* AppDelegate.swift */,
 				4EA799E52163C33300E5AB65 /* Assets.xcassets */,
 				4EA799E72163C33300E5AB65 /* Info.plist */,
@@ -230,6 +234,7 @@
 			children = (
 				4EC42CFE215B8C200096716E /* Extrensions */,
 				4EC42CF7215B853F0096716E /* Model */,
+				4EA799C9216388AE00E5AB65 /* ViewModels */,
 			);
 			path = MarvelAPIShared;
 			sourceTree = "<group>";
@@ -240,6 +245,21 @@
 				4EA79A1A2164D56000E5AB65 /* CharacterCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4EA79A1C21650B1200E5AB65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4EA79A1D21650B1700E5AB65 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4EA79A1E21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4EC42CC9215B66BB0096716E = {
@@ -291,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				4EA799D621639D4600E5AB65 /* MarvelAPI.swift */,
-				4EA799C9216388AE00E5AB65 /* ViewModels */,
 				4EC42D0C215B9F910096716E /* Network */,
 				4EC42D0D215B9FC30096716E /* ComicCharacter.swift */,
 				4EC42D0F215BB28C0096716E /* Image.swift */,
@@ -583,13 +602,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MarvelAPITV/Pods-MarvelAPITV-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa-tvOS/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift-tvOS/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result-tvOS/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
@@ -623,13 +640,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MarvelAPI/Pods-MarvelAPI-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa-iOS/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift-iOS/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result-iOS/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
@@ -658,6 +673,7 @@
 				4EA79A082164C0E500E5AB65 /* Result.swift in Sources */,
 				4EA79A042164BB9600E5AB65 /* MarvelAPI.swift in Sources */,
 				4EA79A142164C24B00E5AB65 /* CharactersAPIRequest.swift in Sources */,
+				4EA79A1F21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift in Sources */,
 				4EA79A132164C22F00E5AB65 /* String+md5.swift in Sources */,
 				4EA79A122164C20F00E5AB65 /* URLQueryItemEncoder.swift in Sources */,
 				4EA79A0E2164C1FA00E5AB65 /* DataContainer.swift in Sources */,

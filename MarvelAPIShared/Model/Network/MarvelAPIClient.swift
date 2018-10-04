@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReactiveCocoa
 import ReactiveSwift
 import Result
 import struct Result.AnyError
