@@ -80,14 +80,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Jg-H5-ce2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Comic Characters" id="0MC-hS-PJf"/>
+                    <tabBarItem key="tabBarItem" title="Comic Characters" id="a2A-PL-nIL"/>
+                    <navigationItem key="navigationItem" id="4aD-OZ-uhs"/>
                     <connections>
                         <outlet property="charactersCollectionView" destination="nY7-bo-Rcu" id="Mzi-ir-jut"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFS-vp-MiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="93"/>
+            <point key="canvasLocation" x="3827" y="-1425"/>
         </scene>
         <!--Comics-->
         <scene sceneID="c2g-fa-ReB">
@@ -167,7 +168,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gly-uw-weV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="1711"/>
+            <point key="canvasLocation" x="3827" y="169"/>
+        </scene>
+        <!--Character Search-->
+        <scene sceneID="HQ4-tX-Q31">
+            <objects>
+                <viewController id="fkL-8i-RRq" customClass="CharacterSearchTvOSViewController" customModule="MarvelAPITV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K43-gk-maS"/>
+                        <viewControllerLayoutGuide type="bottom" id="mWj-Sq-gEy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vYl-y0-Psq">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnF-S8-qYu">
+                                <rect key="frame" x="140" y="442" width="1640" height="197"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcU-Ga-aFw">
+                                        <rect key="frame" x="8" y="8" width="911" height="75"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="64"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwi-8w-TTf">
+                                        <rect key="frame" x="720" y="103" width="200" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Search"/>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Brm-I0-xRF">
+                                        <rect key="frame" x="939" y="11" width="373" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="Character"/>
+                                            <segment title="Comic"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0zj-tT-okI">
+                                        <rect key="frame" x="1332" y="11" width="300" height="70"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <segments>
+                                            <segment title="Exact"/>
+                                            <segment title="Starts"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Brm-I0-xRF" firstAttribute="centerY" secondItem="mcU-Ga-aFw" secondAttribute="centerY" id="4vz-as-Ymn"/>
+                                    <constraint firstItem="xwi-8w-TTf" firstAttribute="top" secondItem="mcU-Ga-aFw" secondAttribute="bottom" constant="20" id="FXN-Mx-xrH"/>
+                                    <constraint firstItem="0zj-tT-okI" firstAttribute="centerY" secondItem="mcU-Ga-aFw" secondAttribute="centerY" id="Gq0-Qu-hr7"/>
+                                    <constraint firstItem="xwi-8w-TTf" firstAttribute="centerX" secondItem="DnF-S8-qYu" secondAttribute="centerX" id="dFo-8I-ixM"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="0zj-tT-okI" secondAttribute="trailing" id="fKk-Mg-Lz3"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="xwi-8w-TTf" secondAttribute="bottom" id="gUL-yw-Tcf"/>
+                                    <constraint firstItem="mcU-Ga-aFw" firstAttribute="top" secondItem="DnF-S8-qYu" secondAttribute="topMargin" id="iRI-89-7XH"/>
+                                    <constraint firstItem="0zj-tT-okI" firstAttribute="leading" secondItem="Brm-I0-xRF" secondAttribute="trailing" constant="20" id="pbg-gr-k4d"/>
+                                    <constraint firstItem="mcU-Ga-aFw" firstAttribute="leading" secondItem="DnF-S8-qYu" secondAttribute="leadingMargin" id="qbh-8A-bXa"/>
+                                    <constraint firstItem="Brm-I0-xRF" firstAttribute="leading" secondItem="mcU-Ga-aFw" secondAttribute="trailing" constant="20" id="x4l-Ig-VL5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DnF-S8-qYu" firstAttribute="leading" secondItem="eCr-oH-4Cz" secondAttribute="leading" constant="50" id="q3D-cM-mV5"/>
+                            <constraint firstItem="DnF-S8-qYu" firstAttribute="centerY" secondItem="vYl-y0-Psq" secondAttribute="centerY" id="rHh-bO-JP9"/>
+                            <constraint firstItem="eCr-oH-4Cz" firstAttribute="trailing" secondItem="DnF-S8-qYu" secondAttribute="trailing" constant="50" id="wlJ-WE-1qf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eCr-oH-4Cz"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Character Search" id="4ol-ex-gwO"/>
+                    <connections>
+                        <outlet property="contentView" destination="DnF-S8-qYu" id="pYy-il-si0"/>
+                        <outlet property="exactSegmentedControl" destination="0zj-tT-okI" id="zAS-bw-DEK"/>
+                        <outlet property="searchButton" destination="xwi-8w-TTf" id="doG-UI-dzM"/>
+                        <outlet property="searchTextField" destination="mcU-Ga-aFw" id="zFX-2z-suV"/>
+                        <outlet property="typeSegmentedControl" destination="Brm-I0-xRF" id="oBB-0Z-ife"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5b-aB-slj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3898" y="1602"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4OF-3a-14B">
@@ -179,8 +258,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rlg-oK-QPz" kind="relationship" relationship="viewControllers" id="WkY-U8-suc"/>
+                        <segue destination="rlg-oK-QPz" kind="relationship" relationship="viewControllers" id="v5Q-Lg-JgE"/>
                         <segue destination="F04-xc-Q6B" kind="relationship" relationship="viewControllers" id="NnI-3g-Ogc"/>
+                        <segue destination="fkL-8i-RRq" kind="relationship" relationship="viewControllers" id="cdG-8x-Hk3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7f-44-MMd" userLabel="First Responder" sceneMemberID="firstResponder"/>

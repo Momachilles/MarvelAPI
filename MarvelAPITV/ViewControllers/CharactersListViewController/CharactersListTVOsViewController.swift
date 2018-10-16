@@ -39,6 +39,25 @@ class CharactersListTVOsViewController: UIViewController, UICollectionViewDelega
         
         viewModel.shouldReloadCharactersListTable.signal.observeValues {[weak self] _ in
             DispatchQueue.main.async {
+                
+                /*
+                self?.charactersCollectionView.performBatchUpdates({
+                    
+                }, completion: { finished in
+                    
+                })
+                
+                self.collectionView.performBatchUpdates({
+                    var indexPathsCollection: [IndexPath] = []
+                    if self.collectionViewModel.currentBeginningIndex < self.collectionViewModel.currentEndingIndex {
+                        for i in self.collectionViewModel.currentBeginningIndex...self.collectionViewModel.currentEndingIndex {
+                            indexPathsCollection.append(IndexPath(item: i, section: 0))
+                        }
+                        self.collectionView.insertItems(at: indexPathsCollection)
+                    }
+                }, completion: nil)
+                */
+                
                 self?.charactersCollectionView.reloadData()
             }
         }

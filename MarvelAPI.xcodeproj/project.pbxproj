@@ -12,6 +12,8 @@
 		4E17EF142166552A00F23656 /* ComicCollectionViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17EF132166552A00F23656 /* ComicCollectionViewCellModel.swift */; };
 		4E17EF162166554300F23656 /* ComicsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17EF152166554300F23656 /* ComicsListViewModel.swift */; };
 		4E17EF1B2166581B00F23656 /* ComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17EF1A2166581B00F23656 /* ComicCollectionViewCell.swift */; };
+		4E17EF1E21674C2500F23656 /* CharacterSearchTvOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17EF1D21674C2500F23656 /* CharacterSearchTvOSViewController.swift */; };
+		4E17EF202167574100F23656 /* CharacterSearchTvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E17EF1F2167574100F23656 /* CharacterSearchTvOSViewModel.swift */; };
 		4EA799D22163985800E5AB65 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA799D02163985800E5AB65 /* CharactersListViewController.swift */; };
 		4EA799D32163985800E5AB65 /* CharactersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA799D12163985800E5AB65 /* CharactersListViewController.xib */; };
 		4EA799D521639B9A00E5AB65 /* CharactersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA799D421639B9A00E5AB65 /* CharactersListViewModel.swift */; };
@@ -88,6 +90,8 @@
 		4E17EF132166552A00F23656 /* ComicCollectionViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCellModel.swift; sourceTree = "<group>"; };
 		4E17EF152166554300F23656 /* ComicsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListViewModel.swift; sourceTree = "<group>"; };
 		4E17EF1A2166581B00F23656 /* ComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E17EF1D21674C2500F23656 /* CharacterSearchTvOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSearchTvOSViewController.swift; sourceTree = "<group>"; };
+		4E17EF1F2167574100F23656 /* CharacterSearchTvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSearchTvOSViewModel.swift; sourceTree = "<group>"; };
 		4EA799D02163985800E5AB65 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		4EA799D12163985800E5AB65 /* CharactersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersListViewController.xib; sourceTree = "<group>"; };
 		4EA799D421639B9A00E5AB65 /* CharactersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +193,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		4E17EF1C21674BF900F23656 /* CharacterSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4E17EF1D21674C2500F23656 /* CharacterSearchTvOSViewController.swift */,
+			);
+			path = CharacterSearchViewController;
+			sourceTree = "<group>";
+		};
 		4EA799C9216388AE00E5AB65 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,9 +260,10 @@
 		4EA79A092164C13000E5AB65 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4EA79A012163C7EE00E5AB65 /* MainTvOS.storyboard */,
-				4E17EF102166527F00F23656 /* ComicsListViewController */,
+				4E17EF1C21674BF900F23656 /* CharacterSearchViewController */,
 				4EA799F92163C4BE00E5AB65 /* CharactersListViewController */,
+				4E17EF102166527F00F23656 /* ComicsListViewController */,
+				4EA79A012163C7EE00E5AB65 /* MainTvOS.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -278,6 +291,7 @@
 			children = (
 				4EA79A1E21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift */,
 				4E17EF132166552A00F23656 /* ComicCollectionViewCellModel.swift */,
+				4E17EF1F2167574100F23656 /* CharacterSearchTvOSViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -686,6 +700,7 @@
 			files = (
 				4EA79A1B2164D56000E5AB65 /* CharacterCollectionViewCell.swift in Sources */,
 				4E17EF1B2166581B00F23656 /* ComicCollectionViewCell.swift in Sources */,
+				4E17EF202167574100F23656 /* CharacterSearchTvOSViewModel.swift in Sources */,
 				4EA79A0B2164C1EF00E5AB65 /* CharactersListViewModel.swift in Sources */,
 				4E17EF162166554300F23656 /* ComicsListViewModel.swift in Sources */,
 				4EA79A072164C0D100E5AB65 /* Image.swift in Sources */,
@@ -702,6 +717,7 @@
 				4E17EF122166545600F23656 /* ComicsListTvOSViewController.swift in Sources */,
 				4EA79A142164C24B00E5AB65 /* CharactersAPIRequest.swift in Sources */,
 				4EA79A1F21650B9600E5AB65 /* CharacterCollectionViewCellModel.swift in Sources */,
+				4E17EF1E21674C2500F23656 /* CharacterSearchTvOSViewController.swift in Sources */,
 				4EA79A132164C22F00E5AB65 /* String+md5.swift in Sources */,
 				4EA79A122164C20F00E5AB65 /* URLQueryItemEncoder.swift in Sources */,
 				4EA79A0E2164C1FA00E5AB65 /* DataContainer.swift in Sources */,
